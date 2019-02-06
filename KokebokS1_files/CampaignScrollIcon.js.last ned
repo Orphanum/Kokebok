@@ -1,0 +1,7 @@
+﻿isScrolling = false;
+$(document).ready(function () {
+    $(window).on('scrollstart', function () {
+        isScrolling = true;
+        $('.cm-scroll-icon-wrapper').fadeOut('slow');
+    });
+});

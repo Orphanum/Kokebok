@@ -1,0 +1,1 @@
+var printDialogViewModel=function(){var n=this;n.printWithImages=function(n,t){t.preventDefault();$("body").removeClass("no-images");gtmClient.sendEvent("oppskrift","bruk","utskrift med bilde");window.print()};n.printWithoutImages=function(n,t){t.preventDefault();$("body").addClass("no-images");gtmClient.sendEvent("oppskrift","bruk","utskrift uten bilde");window.print()}}

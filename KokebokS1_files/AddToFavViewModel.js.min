@@ -1,0 +1,1 @@
+var AddToFavViewModel=function(n,t){var i=this;i.ContentId=n;i.elem=ko.observable();i.favouriteClick=function(){var n=$(".article-title").text();gtmSocialClient.favouriteClick(n)};i.elem(new ContentElementViewModel(i,{remove_element_on_unfollow:!1}));t!=null&&i.elem().Relation(new RelationViewModel(t))}
