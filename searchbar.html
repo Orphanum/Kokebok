@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+</head>
+<style>
+    * {box-sizing: border-box;
+}
+
+#myInput{
+background-image: url(search.png);
+background-position: 10px 12px;
+background-repeat: no-repeat;
+width: 100%;
+font-size: 16px;
+padding: 12px 20px 12px 40px;
+border: 1px solid #ddd;
+margin-bottom: 12px;
+}
+
+#myUL{
+list-style-type: none;
+padding:0;
+margin: 0;
+}
+#myUL li a{
+border:1px solid rgb(134, 129, 129);
+margin-top: -1px; /*sånn at du ikke får dobbel borders*/
+background-color: #f4AC5f;
+padding: 12px;
+text-decoration: none;
+font-size: 18px;
+color:black;
+display: block;
+}
+#myUL li a:hover:not(.header){
+background-color: #eee;
+}
+</style>
+
+
+
+
+<body>
+    <h2> KokeBok</h2>
+
+    <input type="Mytext" id="myInput" onkeyup="myFunction()" placeholder="Søk etter oppskrift.." title="Skriv inn en oppskrift">
+
+    <ul id="myUL">
+        <li><a href="#">Karbonade m/Speilegg</a></li>
+        <li><a href="#">Pytt i Panne</a></li>
+        <li><a href="#">Spaghetti m/Kjøttsaus</a></li>
+        <li><a href="#">Koteletter</a></li>
+        <li><a href="#">Lapskaus m/Pølse</a></li>
+        <li><a href="#">Fiske Suppe</a></li>
+        <li><a href="#">Kjøtt Suppe</a></li>
+        <li><a href="#">Tomat Suppe</a></li>
+        <li><a href="#">Chili Con Carne</a></li>
+        <li><a href="#">Innbakt Laks</a></li>
+        <li><a href="#">Pannekaker og Bacon</a></li>
+        <li><a href="#">Brennende Kjerlighet</a></li>
+        <li><a href="#">Kjøttkaker i Brunsaus</a></li>
+        <li><a href="#">Wok m/Nudler og Kjøtt</a></li>
+        <li><a href="#">Enchiladas</a></li>
+        <li><a href="#">PolarPizza</a></li>
+        <li><a href="#">Stekt Ris</a></li>
+        <li><a href="#">Løksupper m/Ostesmørbrød</a></li>
+        <li><a href="#">Nachos</a></li>
+        <li><a href="#">Hjemme Laget Hamburger</a></li>
+        <li><a href="#">Curry Og Ris (kanskje)</a></li>
+    </ul>
+
+
+    <script>
+        var UL = document.getElementById("myUL");
+        //gjømmer lista som standard
+        UL.style.display = "none";
+
+        var searchBox = document.getElementById("myInput");
+        //gjømmer lista når searchbaren får focus
+        searchBox.addEventListener("blur", function () {
+            UL.style.display = "none";
+        });
+
+    function myFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput");
+        ul = document.getElementById("myUL");
+        //hvis searchbaren ikke har noe i seg hviser den ingenting
+        filter = input.value.toUpperCase();
+        if (filter.trim().length < 1) {
+            ul.style.display = "none";
+        return false;
+        } else {
+            ul.style.display = "block"
+    }
+
+
+    li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+    </script>
+</body>
+
+</html>
